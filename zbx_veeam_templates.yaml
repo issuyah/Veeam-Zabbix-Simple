@@ -1,0 +1,63 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-06-24T09:44:21Z'
+  groups:
+    - uuid: 6daaceed1d2d44829e2d072f550b8316
+      name: Templates/Veeam
+  templates:
+    - uuid: d46123c27d6e42d99ee5f289ff6c6d9c
+      template: 'Simple Veeam Zabbix v1'
+      name: 'Simple Veeam Zabbix v1'
+      groups:
+        - name: Templates/Veeam
+      items:
+        - uuid: aca3ea93b2014d2e8241955f84bbbb64
+          name: 'Veeam JSON'
+          type: TRAP
+          key: job.json
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: STR_REPLACE
+              parameters:
+                - '?'
+                - '"'
+          triggers:
+            - uuid: 1e1ce9fe2c2a45c2983cfdaf7fbf05dc
+              expression: 'nodata(/Simple Veeam Zabbix v1/job.json,21600)=1'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'nodata(/Simple Veeam Zabbix v1/job.json,21600)=0'
+              name: 'No data received for 6 hours'
+              priority: WARNING
+      discovery_rules:
+        - uuid: f05fb9774d8d47fa9aae38a748b023da
+          name: 'veeam job discovery'
+          type: DEPENDENT
+          key: job.discovery
+          delay: '0'
+          item_prototypes:
+            - uuid: 76dd1b28a2954cb1a814b7c5920572bf
+              name: '{#NOM} - Last Result'
+              type: TRAP
+              key: 'job[{#NOM}]'
+              delay: '0'
+              trends: '0'
+              value_type: TEXT
+              trigger_prototypes:
+                - uuid: 8657dda5dfea414096e4de0b6170dbf4
+                  expression: 'find(/Simple Veeam Zabbix v1/job[{#NOM}],,,"Failed")=1'
+                  recovery_mode: RECOVERY_EXPRESSION
+                  recovery_expression: 'find(/Simple Veeam Zabbix v1/job[{#NOM}],,,"Success")=1'
+                  name: 'backup {#NOM} failed'
+                  priority: HIGH
+                  manual_close: 'YES'
+                - uuid: bdc0f3fe2e95468a96311527c98b883f
+                  expression: 'find(/Simple Veeam Zabbix v1/job[{#NOM}],,,"Warning")=1'
+                  recovery_mode: RECOVERY_EXPRESSION
+                  recovery_expression: 'find(/Simple Veeam Zabbix v1/job[{#NOM}],,,"Success")=1'
+                  name: 'backup {#NOM} Warning'
+                  priority: AVERAGE
+                  manual_close: 'YES'
+          master_item:
+            key: job.json
