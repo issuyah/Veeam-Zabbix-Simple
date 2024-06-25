@@ -37,5 +37,15 @@ foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -eq 'True'}) {
     echo $jobName
 }
 
+foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -ne 'True'}) {
+# Clean Zabbix Job Name
+    $cleanJobName = $job.Name -replace '[^a-zA-Z0-9_]', ''
+    $jobName = "job[" + $cleanJobName + "]"
+
+    #Send data to Zabbix server
+    & $zabbixSenderPath -z $zabbixServer -s $zabbixHost -k $jobName -o "Disabled"
+    echo $jobName
+}
+
 # Disconnect from zabbix host
 Disconnect-VBRServer
