@@ -1,6 +1,6 @@
 zabbix_export:
   version: '6.0'
-  date: '2024-06-24T09:44:21Z'
+  date: '2024-12-11T15:41:11Z'
   groups:
     - uuid: 6daaceed1d2d44829e2d072f550b8316
       name: Templates/Veeam
@@ -16,6 +16,7 @@ zabbix_export:
           type: TRAP
           key: job.json
           delay: '0'
+          history: 5d
           trends: '0'
           value_type: TEXT
           preprocessing:
@@ -29,7 +30,7 @@ zabbix_export:
               recovery_mode: RECOVERY_EXPRESSION
               recovery_expression: 'nodata(/Simple Veeam Zabbix v1/job.json,21600)=0'
               name: 'No data received for 6 hours'
-              priority: WARNING
+              priority: HIGH
       discovery_rules:
         - uuid: f05fb9774d8d47fa9aae38a748b023da
           name: 'veeam job discovery'
