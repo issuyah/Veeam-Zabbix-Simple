@@ -34,7 +34,7 @@ The template is ready, you can now create the host !
 
 In this part, you just have to create an active host in zabbix :
 
-![image4.png]([image4.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image4.png "4")
+![image4.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image4.png "4")
 
 - Define a host name
 - Select the veeam template “Simple Veeam Zabbix vX”
@@ -48,13 +48,13 @@ Click now on “Create” or “Update”.
 
 To configure the script, you have to put the folder “zabbix_agent2” at the root of Windows filesystem :
 
-![image5.png]([image5.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image5.png "5")
+![image5.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image5.png "5")
 
 Go now on “C:\zabbix_agent2\scripts” and modify the file “Veeam-Zabbix-Simple.ps1”
 
 You just have to modify the lines 3 and 4 :
 
-![image6.png]([image6.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image6.png "6")
+![image6.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image6.png "6")
 
 Save and exit the file.
 
@@ -68,15 +68,15 @@ You can now test the script with a powershell command :
 
 Result :
 
-![image14.png]([image14.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image14.png "14")
+![image14.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image14.png "14")
 
 If like me, all the jobs are in “failed”, just wait 5 minutes and retry to lanch it. Zabbix server have to discover the list of the jobs before adding the values.
 
-![image13.png]([image13.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image13.png "13")
+![image13.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image13.png "13")
 
 You can now see the result on your zabbix lastest data :
 
-![image7.png]([image7.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image7.png "7")
+![image7.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image7.png "7")
 
 C. Configure the task scheduler
 
@@ -86,7 +86,7 @@ So to do that, you have to import the file “Veeam-Zabbix-Simple-task.xml” in
 
 Open the task scheduler : 
 
-![image8.png]([image8.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image8.png "8")
+![image8.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image8.png "8")
 
 Go on action and import task :
 
