@@ -26,7 +26,7 @@ And import :
 
 Choose the template and import-it :
 
-![image.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image3.png "3")
+![image3.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image3.png "3")
 
 The template is ready, you can now create the host !
 
@@ -34,7 +34,7 @@ The template is ready, you can now create the host !
 
 In this part, you just have to create an active host in zabbix :
 
-![image.png](image%204.png)
+![image4.png]([image4.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image4.png "4")
 
 - Define a host name
 - Select the veeam template “Simple Veeam Zabbix vX”
@@ -48,13 +48,13 @@ Click now on “Create” or “Update”.
 
 To configure the script, you have to put the folder “zabbix_agent2” at the root of Windows filesystem :
 
-![image.png](image%205.png)
+![image5.png]([image5.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image5.png "5")
 
 Go now on “C:\zabbix_agent2\scripts” and modify the file “Veeam-Zabbix-Simple.ps1”
 
 You just have to modify the lines 3 and 4 :
 
-![image.png](image%206.png)
+![image6.png]([image6.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image6.png "6")
 
 Save and exit the file.
 
@@ -68,15 +68,15 @@ You can now test the script with a powershell command :
 
 Result :
 
-![1.png](1.png)
+![image14.png]([image14.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image14.png "14")
 
 If like me, all the jobs are in “failed”, just wait 5 minutes and retry to lanch it. Zabbix server have to discover the list of the jobs before adding the values.
 
-![1.png](1%201.png)
+![image13.png]([image13.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image13.png "13")
 
 You can now see the result on your zabbix lastest data :
 
-![image.png](image%207.png)
+![image7.png]([image7.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image7.png "7")
 
 C. Configure the task scheduler
 
@@ -86,22 +86,22 @@ So to do that, you have to import the file “Veeam-Zabbix-Simple-task.xml” in
 
 Open the task scheduler : 
 
-![image.png](image%208.png)
+![image8.png]([image8.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image8.png "8")
 
 Go on action and import task :
 
-![image.png](image%209.png)
+![image9.png](image9.png)
 
 Select the file on the explorer :
 
-![image.png](image%2010.png)
+![image10.png](image10.png)
 
 Now you have to put your admin account into the task to run it when the session is locked :
 
-![image.png](image%2011.png)
+![image11.png](image11.png)
 
 You can now save and exit this configuration window and test the task :
 
-![image.png](image%2012.png)
+![image12.png](image12.png)
 
 You have now finished the installation. You can change the delta between each send by tweaking the planified task.
