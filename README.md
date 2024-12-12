@@ -4,6 +4,11 @@ Veeam monitoring with Zabbix, small Powershell script and a template. Using Zabb
 
 ![ZabbixSchema1](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/ZabbixSchema1.png)
 
+It will returns backups errors in your dashboard and automatically close the problem when the backup back to a success state :
+
+![Zabbixtrigger](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/trigger.png)
+
+
 # 2. Installation :
 
 ## 1. Download the files :
