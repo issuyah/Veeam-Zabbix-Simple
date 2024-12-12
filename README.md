@@ -90,7 +90,7 @@ Open the task scheduler :
 
 Go on action and import task :
 
-![image9.png](image9.png)
+![image9.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image9.png)
 
 Select the file on the explorer :
 
