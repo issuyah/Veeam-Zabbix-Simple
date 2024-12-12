@@ -13,7 +13,7 @@ It will returns backups errors in your dashboard and automatically close the pro
 
 ## 1. Download the files :
 
-You can download the lastest version of the packages on my github : https://github.com/issuyah/Veeam-Zabbix-Simple or in the sibio nextcloud share : \IT\Outils\zabbix\Clients\Veeam-Zabbix-Simple-main
+You can download the lastest version of the packages on my github : https://github.com/issuyah/Veeam-Zabbix-Simple
 
 ![image0.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image0.png)
 
