@@ -75,7 +75,7 @@ Result :
 
 ![image14.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image14.png)
 
-If like me, all the jobs are in “failed”, just wait 5 minutes and retry to lanch it. Zabbix server have to discover the list of the jobs before adding the values.
+If like me, all the jobs are in “failed”, just wait 5 minutes and retry to launch it. Zabbix server have to discover the list of jobs before adding the values.
 
 ![image13.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image13.png)
 
