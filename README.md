@@ -11,6 +11,13 @@ It will returns backups errors in your dashboard and automatically close the pro
 
 # 2. Installation :
 
+## Prerequisite
+
+You need to have Powershell 7 to launch the script. Please Download and install it from the Microsoft Website :
+
+https://learn.microsoft.com/fr-fr/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.5
+
+
 ## 1. Download the files :
 
 You can download the lastest version of the packages on my github : https://github.com/issuyah/Veeam-Zabbix-Simple
@@ -57,7 +64,7 @@ To configure the script, you have to put the folder “zabbix_agent2” at the r
 
 Go now on “C:\zabbix_agent2\scripts” and modify the file “Veeam-Zabbix-Simple.ps1”
 
-You just have to modify the lines 3 and 4 :
+You just have to modify the lines 3 to 5 :
 
 ![image6.png](https://github.com/issuyah/Veeam-Zabbix-Simple/blob/main/assets/installation/image6.png)
 
@@ -65,9 +72,9 @@ Save and exit the file.
 
 ### B. Test the script
 
-You can now test the script with a powershell command :
+You can now test the script with a powershell command (as administrator) :
 
-“C:\zabbix_agent2\scripts\Veeam-Zabbix-Simple.ps1”
+“powershell pwsh.exe -ExecutionPolicy Bypass -File "C:\zabbix_agent2\scripts\Veeam-Zabbix-Simple.ps1"”
 
 /!\ You maybe have to authorize running scripts into your server. /!\
 
