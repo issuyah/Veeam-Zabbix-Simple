@@ -1,9 +1,9 @@
 # Variables
 $zabbixServer = "Server IP or FQDN"
 $zabbixHost = "Host name in Zabbix"
-$zabbixSenderPath = "C:\zabbix_agent2\bin\zabbix_sender.exe"
 $UserVeeam = "User Veeam"
 $PasswVeeam = "password Veeam"
+$zabbixSenderPath = "C:\zabbix_agent2\bin\zabbix_sender.exe"
 
 # Veeam module Import
 Import-Module Veeam.Backup.PowerShell
