@@ -2,12 +2,14 @@
 $zabbixServer = "Server IP or FQDN"
 $zabbixHost = "Host name in Zabbix"
 $zabbixSenderPath = "C:\zabbix_agent2\bin\zabbix_sender.exe"
+$UserVeeam = "User Veeam"
+$PasswVeeam = "password Veeam"
 
 # Veeam module Import
 Import-Module Veeam.Backup.PowerShell
 
 # Connection to Veeam Server
-Connect-VBRServer -Server "localhost"
+Connect-VBRServer -Server "localhost" -User $UserVeeam -Password $PasswVeeam
 
 # Get Veeam Jobs into a variable
 $backupJobs = Get-VBRJob
@@ -39,7 +41,7 @@ foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -eq 'True'}) {
 
 
 foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -ne 'True'}) {
-# Clean Zabbix Job Name
+    # Clean Zabbix Job Name
     $cleanJobName = $job.Name -replace '[^a-zA-Z0-9_]', ''
     $key = "job[" + $cleanJobName + "]"
 
@@ -47,7 +49,7 @@ foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -ne 'True'}) {
     & $zabbixSenderPath -z $zabbixServer -s $zabbixHost -k $key -o "Disabled"
 }
 
-# Prepare job last run delay for Zabbix
+# last run delay item
 $date = Get-Date
 foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -eq 'True'}) {
     # Clean Zabbix Job Name
@@ -61,6 +63,5 @@ foreach ($job in $backupJobs.where{$_.info.IsScheduleEnabled -eq 'True'}) {
     & $zabbixSenderPath -z $zabbixServer -s $zabbixHost -k $key -o $result
 }
 
+Stop-Process -Force -Name "pwsh"
 
-# Disconnect from zabbix host
-Disconnect-VBRServer
